@@ -2,10 +2,12 @@ package greet
 
 import "fmt"
 
+const englishHelloPrefix = "Hello,"
+
 func Hello() string {
-	return "Hello, world!"
+	return fmt.Sprintf("%s world!", englishHelloPrefix)
 }
 
 func Greet(name string) string {
-	return fmt.Sprintf("Hello, %s", name)
+	return fmt.Sprintf("%s %s", englishHelloPrefix, name)
 }

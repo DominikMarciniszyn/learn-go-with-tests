@@ -5,16 +5,24 @@ import (
 	"testing"
 )
 
-func Test_Hello(t *testing.T) {
-	result := Hello()
-	expected := "Hello, world!"
+func Test_HelloAndGreet(t *testing.T) {
+	t.Run("saying hello world", func(t *testing.T) {
+		result := Hello()
+		expected := "Hello, world!"
 
-	assert.Equal(t, expected, result)
+		assertCorrectMessage(t, result, expected)
+	})
+
+	t.Run("saying hello to people", func(t *testing.T) {
+		result := Greet("Tom")
+		expected := "Hello, Tom"
+
+		assertCorrectMessage(t, result, expected)
+	})
 }
 
-func Test_Greet(t *testing.T) {
-	result := Greet("Tom")
-	expected := "Hello, Tom"
+func assertCorrectMessage(t testing.TB, actual, expected string) {
+	t.Helper()
 
-	assert.Equal(t, expected, result)
+	assert.Equal(t, expected, actual)
 }
