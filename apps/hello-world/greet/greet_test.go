@@ -14,8 +14,22 @@ func Test_HelloAndGreet(t *testing.T) {
 	})
 
 	t.Run("saying hello to people", func(t *testing.T) {
-		result := Greet("Tom")
+		result := Greet("Tom", "English")
 		expected := "Hello, Tom"
+
+		assertCorrectMessage(t, result, expected)
+	})
+
+	t.Run("saying hello to people in spanish", func(t *testing.T) {
+		result := Greet("Tom", "Spanish")
+		expected := "Hola, Tom"
+
+		assertCorrectMessage(t, result, expected)
+	})
+
+	t.Run("saying hello to people in french", func(t *testing.T) {
+		result := Greet("Tom", "French")
+		expected := "Bonjour, Tom"
 
 		assertCorrectMessage(t, result, expected)
 	})
